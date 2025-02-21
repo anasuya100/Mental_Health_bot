@@ -23,7 +23,7 @@ This is the frontend for a real-time chat application built with React.js. It pr
 1. Clone the repository:
    ```sh
    git clone https://github.com/your-repo/chat-frontend.git
-   cd chat-frontend
+   cd frontend
    ```
 
 2. Install dependencies:
