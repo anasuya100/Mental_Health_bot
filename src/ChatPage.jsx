@@ -41,7 +41,7 @@ function ChatPage() {
     }
     
     const recognition = new SpeechRecognition();
-    recognition.lang = 'en-US','hi-IN','bn-IN';
+    recognition.lang = 'en-US';
     recognition.maxAlternatives = 1;
     recognition.interimResults = false;
     recognition.continuous = true;
@@ -159,12 +159,12 @@ function ChatPage() {
     <div className="min-h-screen w-screen flex flex-col justify-center items-center p-2 bg-cover bg-center bg-no-repeat"style={{ backgroundImage: "url('/Background.jpg')" }}>
       <div className="w-full max-w-2xl bg-gradient-to-l from-purple-200 to-fuchsia-100 p-6 rounded shadow-lg shadow-purple-500 flex flex-col space-y-4 mt-4">
         <div className="w-full bg-fuchsia-200 py-4 px-6 flex left shadow-md text-xl rounded font-bold text-black">
-          SURI - AI Assistant
+          XYLA - AI Assistant
         </div>
         <div className="h-96 overflow-y-auto border-b p-4 flex flex-col space-y-1">
           {messages.length === 0 && (
             <div className="text-black font-bold text-2xl text-center py-4 mt-10">
-              Hii, I am Suri<br />How can I help you today?
+              Hii, I am XYLA<br />How can I help you today?
             </div>
           )}
           {messages.map((message) => (
