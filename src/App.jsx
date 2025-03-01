@@ -2,7 +2,6 @@ import React from 'react'
 import Login from './Login'
 import ChatPage from './ChatPage'
 import PrivateRoute from './privateroute';
-import Loginroute from './loginprivate';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import daisyui from 'daisyui';
 

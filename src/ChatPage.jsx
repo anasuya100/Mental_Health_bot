@@ -13,7 +13,7 @@ function ChatPage() {
   const aiReplied = useRef(false);
 
   useEffect(()=>{
-    const ws = new WebSocket(` wss://mental-rwqo.onrender.com/ws/chat/?access_token=${token}`);
+    const ws = new WebSocket(` wss://mental-rwqo.onrender.com/ws/chat/`);
     ws.onopen = () => {
       console.log('connected');
       

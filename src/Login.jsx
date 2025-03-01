@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,12 +9,21 @@ const Login = () => {
   };
 
   useEffect(() => {
-    const token = Cookies.get("access_token");
-    if (token) {
-      const data = jwtDecode(token)
-      var id = data['user_id']
-      navigate(`chats/${id}`); // Redirect to chat page if token exists
-    }
+    const checkAuth = async () => {
+      try {
+        const response = await fetch("https://mental-rwqo.onrender.com/api/authstatus/",{
+          method : "GET",
+          credentials: "include", 
+        })
+        const data = await response.json();
+        if(data.authenticated){
+          navigate(`/chats/${data.user_id}`);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    checkAuth();
   }, [navigate]); 
 
   const handleSubmit = async (e) => {
@@ -25,7 +32,7 @@ const Login = () => {
     const username = formData.username
     const password = formData.password
 
-    const response = await fetch(" https://mental-rwqo.onrender.com/api/register/", {
+    const response = await fetch("https://mental-rwqo.onrender.com/api/register/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,13 +48,10 @@ const Login = () => {
       const result = await response.json()
       var id = result['user_id']
       console.log(result)
-      Cookies.set("access_token", result.access_token , { expires: 7 })
-      Cookies.set("refresh_token", result.refresh_token , { expires: 7 })
       navigate(`chats/${id}`)
     }
     setFormData({username:"", email: "", password: "" });
   }; 
-
   return (
     <div className="relative h-screen bg-black text-white flex items-center justify-center">
       <img
