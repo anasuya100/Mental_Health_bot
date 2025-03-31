@@ -55,7 +55,7 @@ const Login = () => {
   return (
     <div className="relative h-screen bg-black text-white flex items-center justify-center">
       <img
-        src="public\Background.jpg"
+        src="/public/Background.jpg"
         alt="Background"
         className="absolute inset-0 w-full h-full object-cover opacity-50"
       />
