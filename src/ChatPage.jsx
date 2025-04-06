@@ -1,5 +1,8 @@
 import React, { useState, useRef, useCallback , useEffect } from 'react';
 import { Mic, Send, StopCircle } from 'lucide-react';
+import useKeepAlive from './hooks/useKeepAlive';
+
+
 
 function ChatPage() {
   const [messages, setMessages] = useState([]);
@@ -11,6 +14,9 @@ function ChatPage() {
   const speechBuffer = useRef('');
   const manualStop = useRef(false);
   const aiReplied = useRef(false);
+
+
+  useKeepAlive(); 
 
   useEffect(()=>{
     const ws = new WebSocket(` wss://mental-rwqo.onrender.com/ws/chat/`);
