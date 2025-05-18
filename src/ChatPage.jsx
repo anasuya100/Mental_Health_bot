@@ -19,12 +19,15 @@ function ChatPage() {
   useKeepAlive(); 
 
   useEffect(()=>{
-    const ws = new WebSocket(` wss://mental-rwqo.onrender.com/ws/chat/`);
+    const ws = new WebSocket(`wss://menatl-bot-service.onrender.com/ws/chat/`);
     ws.onopen = () => {
       console.log('connected');
       
     };
     ws.onclose = () => console.log("WebSocket Disconnected");
+    ws.onerror = (err) => {
+    console.error("WebSocket error", err);
+  };
     setsocket(ws);
     return () => ws.close();
   },[]);
@@ -111,8 +114,8 @@ function ChatPage() {
       if(socket){
         socket.send(JSON.stringify({message: trimmedText}));
         socket.onmessage = (e) => {
-          const message = JSON.parse(e.data);
-          const ai_msg = message['text'];
+          const message = e.data;
+          const ai_msg = message;
           setMessages(prev => [...prev, { id: Date.now().toString(), text: ai_msg , sender: 'ai', type: 'text' }]);
         }
       }

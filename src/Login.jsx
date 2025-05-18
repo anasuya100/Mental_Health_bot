@@ -14,7 +14,7 @@ const Login = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch("https://mental-rwqo.onrender.com/api/authstatus/", {
+        const response = await fetch("https://menatl-bot-service.onrender.com/auth/authstatus/", {
           method: "GET",
           credentials: "include",
         });
@@ -34,15 +34,15 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://mental-rwqo.onrender.com/api/register/", {
+      const response = await fetch("https://menatl-bot-service.onrender.com/auth/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: formData.username,
+          name: formData.username,
           email: formData.email,
-          set_password: formData.password
+          password: formData.password
         }),
         credentials: "include",
       });

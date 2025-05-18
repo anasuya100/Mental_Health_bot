@@ -3,7 +3,10 @@ import { useEffect } from 'react';
 function useKeepAlive() {
   useEffect(() => {
     const ping = () => {
-      fetch('https://mental-rwqo.onrender.com/api/resettoken/')
+      fetch('https://menatl-bot-service.onrender.com/auth/renew-token',{
+          method: "GET",
+          credentials: "include",
+        })
         .then(res => {
           if (!res.ok) throw new Error('Ping failed');
           console.log('Keep-alive ping successful');

@@ -7,7 +7,7 @@ const PrivateRoute = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch("https://mental-rwqo.onrender.com/api/authstatus/",{
+        const response = await fetch("https://menatl-bot-service.onrender.com/auth/authstatus/",{
           method : "GET",
           credentials: "include", 
         });
