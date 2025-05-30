@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Login from './Login';
+import Signin from './Signin';
 import ChatPage from './ChatPage';
 import PrivateRoute from './privateroute';
 
@@ -29,6 +30,7 @@ const App = () => {
       <RouteChangeTracker />
       <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Signin />} />
         <Route element={<PrivateRoute />}>
           <Route path="/chats/:pk" element={<ChatPage />} />
         </Route>

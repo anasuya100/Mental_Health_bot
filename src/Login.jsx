@@ -108,6 +108,9 @@ const Login = () => {
           </label>
           <a href="#" className="hover:underline">Forgot password?</a>
         </div>
+        <div className="flex justify-between text-gray-400 text-sm mt-3">
+          <a href="/login" className="hover:underline">Already Have Account Sign In</a>
+        </div>
       </div>
     </div>
   );
